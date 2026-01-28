@@ -1,22 +1,10 @@
 version: "3.9"
 
 services:
-  frontend:
-    build: ./apps/frontend
-    container_name: frontend
-    ports:
-      - "${FRONTEND_PORT}:3000"
-    volumes:
-      - ./apps/frontend:/app
-      - /app/node_modules
-    env_file:
-      - .env
-    depends_on:
-      - backend
 
   backend:
     build: ./apps/backend
-    container_name: backend
+    container_name: backend_auth
     ports:
       - "${BACKEND_PORT}:3001"
     volumes:
@@ -29,12 +17,12 @@ services:
 
   database:
     image: postgres:16
-    container_name: database
+    container_name: database_auth
     restart: always
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: database
+      POSTGRES_DB: database_auth
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     volumes:
