@@ -3,7 +3,7 @@
 /node_modules
 /build
 /.pnpm-store
-
+/generated
 # Logs
 logs
 *.log
