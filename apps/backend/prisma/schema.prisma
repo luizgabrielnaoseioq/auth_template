@@ -26,3 +26,8 @@ model Food {
   name        String
   value       String
 }
+
+model TestesAutomation {
+  id   String @id @default(uuid())
+  name String
+}
