@@ -1,326 +1,98 @@
-# 🚀 Fullstack Template — Next.js + NestJS + Prisma + Docker
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+</p>
 
-Template fullstack moderno, **pensado para produtividade em desenvolvimento** e **estabilidade em produção**.
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-Este repositório serve como **base sólida** para:
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-* aplicações web
-* APIs
-* SaaS
-* produtos próprios
-* freelas profissionais
+## Description
 
-> ⚡ Menos setup. Mais produto.
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
----
-
-## 🧱 Stack
-
-### Frontend
-
-* **Next.js (App Router)**
-* **TypeScript**
-* Estrutura preparada para páginas públicas e privadas
-* Consumo de API centralizado
-
-### Backend
-
-* **NestJS**
-* **TypeScript**
-* **Prisma ORM**
-* **PostgreSQL**
-* **Clean Architecture (pragmática)**
-
-### Infra
-
-* **Docker + Docker Compose**
-* Dois ambientes:
-
-  * **DEV** → Docker apenas para banco
-  * **PROD** → aplicação totalmente containerizada
-* `.env.example` documentado
-
----
-
-## 📁 Estrutura do Projeto
+## Project setup
 
 ```bash
-.
-├── apps
-│   ├── backend
-│   │   ├── prisma
-│   │   │   └── schema.prisma
-│   │   └── src
-│   │       ├── application
-│   │       │   ├── dto
-│   │       │   └── use-cases
-│   │       ├── domain
-│   │       │   ├── entities
-│   │       │   └── repositories
-│   │       ├── infra
-│   │       │   ├── config
-│   │       │   ├── database
-│   │       │   │   ├── prisma
-│   │       │   │   └── repositories
-│   │       │   └── http
-│   │       │       └── controllers
-│   │       ├── shared
-│   │       │   └── errors
-│   │       └── main.ts
-│   │
-│   └── frontend
-│       ├── app
-│       │   ├── (public)
-│       │   └── (private)
-│       ├── components
-│       ├── hooks
-│       ├── services
-│       │   └── api.ts
-│       ├── types
-│       └── utils
-│
-├── docker
-│   ├── docker-compose.dev.yml
-│   └── docker-compose.prod.yml
-│
-├── .env.example
-├── .env
-└── README.md
+$ pnpm install
 ```
 
----
-
-## 🧠 Filosofia do Template
-
-Este template segue alguns princípios claros:
-
-* **Desenvolvimento rápido primeiro**
-* **Arquitetura clara, sem overengineering**
-* **Separação de responsabilidades**
-* **Docker como ferramenta, não obstáculo**
-
-> Organização boa é a que **não atrapalha o desenvolvimento**
-> e **permite escalar quando necessário**.
-
----
-
-## ⚙️ Pré-requisitos
-
-### Para desenvolvimento (DEV)
-
-* Node.js (recomendado v20+)
-* pnpm
-* Docker
-* Docker Compose
-
-### Para produção (PROD)
-
-* Docker
-* Docker Compose
-
----
-
-## 🚀 Ambiente de Desenvolvimento (DEV)
-
-No ambiente de desenvolvimento:
-
-* Frontend e backend rodam **localmente**
-* Docker é usado **apenas para o banco de dados**
-* `pnpm add` funciona normalmente
-* Hot reload rápido
-
-### 1️⃣ Subir o banco de dados
+## Compile and run the project
 
 ```bash
-docker compose -f docker/docker-compose.dev.yml up
+# development
+$ pnpm run start
+
+# watch mode
+$ pnpm run start:dev
+
+# production mode
+$ pnpm run start:prod
 ```
 
-### 2️⃣ Backend
+## Run tests
 
 ```bash
-cd apps/backend
-pnpm install
-pnpm start:dev
+# unit tests
+$ pnpm run test
+
+# e2e tests
+$ pnpm run test:e2e
+
+# test coverage
+$ pnpm run test:cov
 ```
 
-### 3️⃣ Frontend
+## Deployment
+
+When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+
+If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
 
 ```bash
-cd apps/frontend
-pnpm install
-pnpm dev
+$ pnpm install -g @nestjs/mau
+$ mau deploy
 ```
 
----
+With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-## 🌐 Acessos padrão (DEV)
+## Resources
 
-* Frontend: [http://localhost:3000](http://localhost:3000)
-* Backend: [http://localhost:3001](http://localhost:3001)
+Check out a few resources that may come in handy when working with NestJS:
 
----
+- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
+- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
+- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
+- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
+- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
+- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
+- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
+- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
 
-## 🧬 Prisma (DEV)
+## Support
 
-### Gerar o client
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-```bash
-cd apps/backend
-pnpm prisma generate
-```
+## Stay in touch
 
-### Rodar migrations
+- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-```bash
-pnpm prisma migrate dev
-```
+## License
 
----
-
-## 🐳 Ambiente de Produção (PROD)
-
-Em produção:
-
-* Frontend, backend e banco rodam em containers
-* Código vem da **imagem Docker**
-* Sem volumes de código
-* Ambiente previsível e estável
-
-### Subir ambiente completo
-
-```bash
-docker compose -f docker/docker-compose.prod.yml up --build
-```
-
----
-
-## 🧼 Clean Architecture — Backend
-
-A arquitetura do backend segue uma **Clean Arch pragmática**:
-
-### Camadas
-
-* **Domain**
-
-  * Entidades
-  * Contratos (repositórios)
-  * Não depende de framework
-
-* **Application**
-
-  * Casos de uso
-  * DTOs
-  * Orquestra regras de negócio
-
-* **Infra**
-
-  * Controllers (HTTP)
-  * Prisma
-  * Implementações concretas
-
-### Regra principal
-
-> Camadas internas **não conhecem** camadas externas.
-
-Exemplo:
-
-* Controller → Use Case ✅
-* Use Case → Prisma ❌
-
----
-
-## 🧪 CRUD de Exemplo
-
-O template já possui um **CRUD de User** como referência:
-
-* Entidade de domínio
-* Use case de criação
-* Controller HTTP
-* Repositório Prisma
-
-Esse CRUD serve como:
-
-* documentação viva
-* padrão para novas features
-* base para expansão do sistema
-
----
-
-## 🌐 Organização do Frontend
-
-O frontend é organizado por **intenção**, não por tecnologia:
-
-* `(public)` → páginas públicas
-* `(private)` → páginas protegidas
-* `services/` → comunicação com API
-* `components/` → UI reutilizável
-* `hooks/` → lógica compartilhada
-
-Isso facilita:
-
-* manutenção
-* escalabilidade
-* separação futura (se necessário)
-
----
-
-## 🔐 Variáveis de Ambiente
-
-Arquivo base:
-
-```bash
-.env.example
-```
-
-Exemplo:
-
-```env
-# FRONTEND
-FRONTEND_PORT=3000
-
-# BACKEND
-BACKEND_PORT=3001
-
-# DATABASE
-DATABASE_URL=postgresql://postgres:postgres@localhost:5432/database
-```
-
----
-
-## 📌 Quando separar front e back?
-
-Este template **permite**, mas **não exige** separação imediata.
-
-Separar faz sentido quando:
-
-* deploys precisam ser independentes
-* times crescem
-* o projeto vira produto maior
-
-Até lá, manter juntos **simplifica e acelera**.
-
----
-
-## 🏷️ Versionamento do Template
-
-Recomendado usar tags:
-
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-```
-
----
-
-## 🎯 Objetivo Final
-
-Este template existe para:
-
-* acelerar ideias
-* reduzir setup repetitivo
-* servir como base confiável
-* evoluir junto com o projeto
-
-> **Construa rápido.
-> Organize com intenção.
-> Escale quando fizer sentido.**
+Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
